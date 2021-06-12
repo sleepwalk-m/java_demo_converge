@@ -29,7 +29,8 @@
           <element id="library" level="project" name="Maven: javax.activation:javax.activation-api:1.2.0" />
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-nop:1.7.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.30" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.5.RELEASE" />
