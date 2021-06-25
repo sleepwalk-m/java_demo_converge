@@ -8,12 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="easyexcel" />
         <module name="spring-demo" />
+        <module name="spring5-demo" />
+        <module name="spring_mybatis" />
         <module name="work" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="easyexcel" target="1.5" />
       <module name="spring-demo" target="1.8" />
+      <module name="spring5-demo" target="1.5" />
+      <module name="spring_mybatis" target="1.5" />
       <module name="work" target="1.8" />
     </bytecodeTargetLevel>
   </component>
