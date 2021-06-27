@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="easyexcel" />
+        <module name="fastdfs-demo" />
         <module name="spring-demo" />
         <module name="spring5-demo" />
         <module name="spring_mybatis" />
@@ -15,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="easyexcel" target="1.5" />
+      <module name="fastdfs-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
       <module name="spring5-demo" target="1.5" />
       <module name="spring_mybatis" target="1.5" />
