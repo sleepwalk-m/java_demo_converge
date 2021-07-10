@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/crawler_jd
+    username: root
+    password: root
+
+
+baseUrl:
+  url: https://list.jd.com/list.html?cat=9987,653,655

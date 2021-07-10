@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="crawler-jd" />
         <module name="easyexcel" />
         <module name="fastdfs-demo" />
         <module name="spring-demo" />
@@ -15,6 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="crawler-jd" target="1.5" />
       <module name="easyexcel" target="1.5" />
       <module name="fastdfs-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
