@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/spring_mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/fastdfs-demo/pom.xml" />
         <option value="$PROJECT_DIR$/crawler-jd/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka-demo/pom.xml" />
       </list>
     </option>
   </component>
