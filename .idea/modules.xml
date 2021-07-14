@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/crawler-jd/crawler-jd.iml" filepath="$PROJECT_DIR$/crawler-jd/crawler-jd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crawler-job/crawler-job.iml" filepath="$PROJECT_DIR$/crawler-job/crawler-job.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyexcel/easyexcel.iml" filepath="$PROJECT_DIR$/easyexcel/easyexcel.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastdfs-demo/fastdfs-demo.iml" filepath="$PROJECT_DIR$/fastdfs-demo/fastdfs-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka-demo/kafka-demo.iml" filepath="$PROJECT_DIR$/kafka-demo/kafka-demo.iml" />
