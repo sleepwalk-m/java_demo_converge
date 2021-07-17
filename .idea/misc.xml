@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/crawler-jd/pom.xml" />
         <option value="$PROJECT_DIR$/kafka-demo/pom.xml" />
         <option value="$PROJECT_DIR$/crawler-job/pom.xml" />
+        <option value="$PROJECT_DIR$/crawler-jd-selenium/pom.xml" />
       </list>
     </option>
   </component>

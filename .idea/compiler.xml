@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="crawler-jd" />
+        <module name="crawler-jd-selenium" />
         <module name="crawler-job" />
         <module name="easyexcel" />
         <module name="fastdfs-demo" />
@@ -19,6 +20,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="crawler-jd" target="1.5" />
+      <module name="crawler-jd-selenium" target="1.8" />
       <module name="crawler-job" target="1.8" />
       <module name="easyexcel" target="1.5" />
       <module name="fastdfs-demo" target="1.8" />
