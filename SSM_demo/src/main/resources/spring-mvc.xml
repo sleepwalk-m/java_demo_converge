@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+         SpringMVC只扫描controller包即可
+     -->
+    <context:component-scan base-package="com.mask.ssm.controller"/>
+    <!-- 解决静态资源访问问题，如果不加mvc:annotation-driven会导致无法访问handler-->
+    <mvc:default-servlet-handler/>
+    <!--解决响应乱码-->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="utf-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!--配置视图解析器  前后端不分离项目使用-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+        <!--要求拼接的前缀-->
+        <property name="prefix" value="/WEB-INF/page/"></property>
+        <!--要拼接的后缀-->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <!--开启具体的拦截器的使用，可以配置多个-->
+        <mvc:interceptor>
+            <!--mvc:mapping 拦截哪些请求
+                path /* 当前节点所有 /user
+                    /** 拦截当前节点及子孙节点  /user/xxx
+            -->
+            <mvc:mapping path="/*"/>
+            <!--在使用通配符的过程中 排除指定拦截 -->
+            <mvc:exclude-mapping path="/js/**"/>
+            <!--自定义的拦截器类-->
+            <bean class="com.mask.interceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!--
+          文件上传解析器
+          注意：id 必须为 multipartResolver
+          如果需要上传文件时可以放开相应配置
+      -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置默认字符编码 -->
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 一次请求上传的文件的总大小的最大值，单位是字节-->
+        <property name="maxUploadSize" value="#{1024*1024*100}"/>
+        <!-- 每个上传文件大小的最大值，单位是字节-->
+        <property name="maxUploadSizePerFile" value="#{1024*1024*50}"/>
+    </bean>
+
+
+    <!--Date类型转换器的定义格式（SpringMVC定义的），本质是替换和覆盖其中一个日期格式-->
+    <mvc:annotation-driven conversion-service="conversionService1"/>
+    <!--自定义格式化转换器-->
+    <bean id="conversionService1"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!--覆盖格式化转换器定义规则，该规则是一个set集合，对格式化转换器来说是追加和替换的思想，而不是覆盖整体格式化转换器-->
+        <property name="formatters">
+            <set>
+                <!--具体的日期格式化转换器-->
+                <bean class="org.springframework.format.datetime.DateFormatter">
+                    <!--具体的规则，不具有通用性，仅适用于当前的日期格式化转换器-->
+                    <property name="pattern" value="yyyy-MM-dd"/>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+
+    <!--SpringMVC中controller中的方法，返回“success”时，自动拼接前缀和后缀返回。配置视图中资源路径前缀和后缀-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/page/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+</beans>

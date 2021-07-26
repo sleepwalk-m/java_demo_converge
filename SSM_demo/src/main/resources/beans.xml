@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--读取本地文件-->
+    <context:property-placeholder location="classpath*:jdbc.properties"/>
+    <!--组件扫描-->
+    <context:component-scan base-package="com.mask.ssm">
+        <!--排除掉controller-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--tx命名空间 事务管理-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <!--数据源-->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+
+
+
+    <!--整合mybatis到spring中-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--别名-->
+        <property name="typeAliasesPackage" value="com.mask.ssm.domain"/>
+        <!--分页插件-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <props>
+                            <prop key="helperDialect">mysql</prop>
+                            <prop key="reasonable">true</prop>
+                        </props>
+                    </property>
+                </bean>
+            </array>
+        </property>
+        <!-- mybatis配置驼峰形式的设置类 -->
+        <property name="configuration">
+            <bean class="org.apache.ibatis.session.Configuration">
+                <property name="mapUnderscoreToCamelCase" value="true"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--映射扫描-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.mask.ssm.dao"/>
+    </bean>
+
+    <!-- 添加事务管理器 -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启aop注解支持-->
+    <aop:aspectj-autoproxy/>
+
+
+    <!--注解+XML配置方式实现事务
+        前提还需配置dataSource数据源bean
+        该配置结合注解@Transactional使用即可
+    -->
+    <!--开启注解驱动-->
+    <tx:annotation-driven transaction-manager="ds"/>
+
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="ds">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--装配平台事务管理器对象-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--
+         AOP 方式实现声明式事务
+        配置事务的切面类，不需要我们自己编写这个类了
+        定义事务管理的通知类，需要指定一个平台事务管理器对象
+    -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <!--定义哪些业务方法会被事务控制，以及使用什么样的参数进行控制-->
+        <tx:attributes>
+            <!-- tx:method必须写，否则任何一个业务方法都不会被事务控制 -->
+            <tx:method name="transfer" read-only="false" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置织入关系 -->
+    <aop:config>
+        <aop:pointcut id="pt" expression="execution(* com.itheima.service..*ServiceImpl.*(..))"/>
+        <!--
+            aop:advisor 和 aop:aspect 功能一样，用于配置切面的信息
+            前者是Spring专门为事务管理添加的一个新标签
+         -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
+    </aop:config>
+
+</beans>

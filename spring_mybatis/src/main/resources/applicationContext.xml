@@ -7,7 +7,7 @@
 
     <context:property-placeholder location="classpath*:*.properties"/>
 
-    <bean class="com.mask.service.impl.AccountServiceImpl" id="accountService">
+    <bean class="com.mask.ssm.service.impl.AccountServiceImpl" id="accountService">
         <property name="accountDao" ref="accountDao"/>
     </bean>
 

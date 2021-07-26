@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SSM_demo/SSM_demo.iml" filepath="$PROJECT_DIR$/SSM_demo/SSM_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawler-jd/crawler-jd.iml" filepath="$PROJECT_DIR$/crawler-jd/crawler-jd.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawler-jd-selenium/crawler-jd-selenium.iml" filepath="$PROJECT_DIR$/crawler-jd-selenium/crawler-jd-selenium.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawler-job/crawler-job.iml" filepath="$PROJECT_DIR$/crawler-job/crawler-job.iml" />
