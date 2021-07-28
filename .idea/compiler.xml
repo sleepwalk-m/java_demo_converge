@@ -25,7 +25,7 @@
       <module name="crawler-job" target="1.8" />
       <module name="easyexcel" target="1.5" />
       <module name="fastdfs-demo" target="1.8" />
-      <module name="kafka-demo" target="1.5" />
+      <module name="kafka-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
       <module name="spring5-demo" target="1.5" />
       <module name="spring_mybatis" target="1.5" />
