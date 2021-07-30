@@ -47,7 +47,12 @@
     </servlet-mapping>
 
 
-    <!--配置拦截器，解析请求中的参数_method，否则无法发起PUT请求与DELETE请求，配合页面表单使用-->
+    <!--配置拦截器，解析请求中的参数_method，否则无法发起PUT请求与DELETE请求，配合页面表单使用
+     在HTML页面表单：以下列示例来写
+         <form action='' method='post'>
+          <input name='_method' type='hidden' value='DETELE'/>
+         </form>
+-->
     <!--Restful编程的配置 PUT和DELETE请求方式时需要配置-->
     <filter>
         <filter-name>HiddenHttpMethodFilter</filter-name>
