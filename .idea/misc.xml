@@ -21,6 +21,7 @@
         <option value="$PROJECT_DIR$/crawler-job/pom.xml" />
         <option value="$PROJECT_DIR$/crawler-jd-selenium/pom.xml" />
         <option value="$PROJECT_DIR$/SSM_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/aliyun-sdk-demo/pom.xml" />
       </list>
     </option>
   </component>
