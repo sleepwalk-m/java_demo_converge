@@ -19,7 +19,7 @@ public class TextScan {
 
     public static void main(String[] args) throws Exception {
         IClientProfile profile = DefaultProfile
-            .getProfile("cn-shanghai", "您的accessKeyId", "您的secret");
+            .getProfile("cn-shanghai", "LTAI5tB6Fe51cuVuKS2NLLKo", "4GlOHtVsH8UmF0lg1V9x49QiVdBKMw");
         DefaultProfile
             .addEndpoint("cn-shanghai", "cn-shanghai", "Green", "green.cn-shanghai.aliyuncs.com");        
         IAcsClient client = new DefaultAcsClient(profile);
