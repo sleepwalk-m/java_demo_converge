@@ -13,7 +13,9 @@
       <module fileurl="file://$PROJECT_DIR$/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo/spring-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring5-demo/spring5-demo.iml" filepath="$PROJECT_DIR$/spring5-demo/spring5-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" filepath="$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/verify-code-crawler/verify-code-crawler.iml" filepath="$PROJECT_DIR$/verify-code-crawler/verify-code-crawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/work/work.iml" filepath="$PROJECT_DIR$/work/work.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxl-job-demo/xxl-job-demo.iml" filepath="$PROJECT_DIR$/xxl-job-demo/xxl-job-demo.iml" />
     </modules>
   </component>
 </project>
