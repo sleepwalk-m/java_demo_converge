@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: mongo-demo
+  data:
+    mongodb:
+      uri: mongodb://192.168.200.130:27017/leadnews-comment

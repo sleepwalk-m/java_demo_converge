@@ -86,4 +86,18 @@ public class MongoTest {
 
     }
 
+    /**
+     * 测试mongo的事务
+     */
+    @Test
+    public void testTransaction(){
+        ApComment apComment = new ApComment();
+        apComment.setContent("新增数据3333--测试mongo的事务");
+        mongoTemplate.insert(apComment);
+
+        int i = 1 / 0;
+
+        mongoTemplate.remove(Query.query(Criteria.where("_id").is("6120d5c91912515a04a39dc5")),ApComment.class);
+    }
+
 }
