@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/easyexcel/easyexcel.iml" filepath="$PROJECT_DIR$/easyexcel/easyexcel.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastdfs-demo/fastdfs-demo.iml" filepath="$PROJECT_DIR$/fastdfs-demo/fastdfs-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka-demo/kafka-demo.iml" filepath="$PROJECT_DIR$/kafka-demo/kafka-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongo-demo/mongo-demo.iml" filepath="$PROJECT_DIR$/mongo-demo/mongo-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo/spring-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring5-demo/spring5-demo.iml" filepath="$PROJECT_DIR$/spring5-demo/spring5-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" filepath="$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" />

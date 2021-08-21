@@ -24,6 +24,7 @@
         <option value="$PROJECT_DIR$/aliyun-sdk-demo/pom.xml" />
         <option value="$PROJECT_DIR$/xxl-job-demo/pom.xml" />
         <option value="$PROJECT_DIR$/verify-code-crawler/pom.xml" />
+        <option value="$PROJECT_DIR$/mongo-demo/pom.xml" />
       </list>
     </option>
   </component>

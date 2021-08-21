@@ -13,6 +13,7 @@
         <module name="easyexcel" />
         <module name="fastdfs-demo" />
         <module name="kafka-demo" />
+        <module name="mongo-demo" />
         <module name="spring-demo" />
         <module name="spring5-demo" />
         <module name="spring_mybatis" />
@@ -23,17 +24,19 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="aliyun-sdk-demo" target="8" />
-      <module name="crawler-jd" target="8" />
+      <module name="aliyun-sdk-demo" target="1.5" />
+      <module name="crawler-jd" target="1.5" />
       <module name="crawler-jd-selenium" target="1.8" />
       <module name="crawler-job" target="1.8" />
-      <module name="easyexcel" target="8" />
+      <module name="easyexcel" target="1.5" />
       <module name="fastdfs-demo" target="1.8" />
       <module name="kafka-demo" target="1.8" />
+      <module name="mongo-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
-      <module name="spring5-demo" target="8" />
-      <module name="spring_mybatis" target="8" />
-      <module name="SSM_demo" target="8" />
+      <module name="spring5-demo" target="1.5" />
+      <module name="spring_mybatis" target="1.5" />
+      <module name="SSM_demo" target="1.5" />
+      <module name="verify-code-crawler" target="1.5" />
       <module name="work" target="1.8" />
       <module name="xxl-job-demo" target="1.8" />
     </bytecodeTargetLevel>
