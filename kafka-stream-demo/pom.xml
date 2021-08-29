@@ -4,9 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mask.kafka</groupId>
-    <artifactId>kafka-demo</artifactId>
+    <groupId>com.mask</groupId>
+    <artifactId>kafka-stream-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
     <!-- 继承Spring boot工程 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -69,7 +71,4 @@
 
 
     </dependencies>
-
-
-
 </project>

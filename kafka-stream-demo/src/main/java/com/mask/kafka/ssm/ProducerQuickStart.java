@@ -1,4 +1,4 @@
-package com.mask.ssm.kafka;
+package com.mask.kafka.ssm;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -13,7 +13,7 @@ import java.util.Properties;
  */
 public class ProducerQuickStart {
 
-    private static final String TOPIC = "kafka-mask";
+    private static final String TOPIC = "kafka-mask-in";
 
     public static void main(String[] args) {
 
@@ -43,15 +43,17 @@ public class ProducerQuickStart {
         KafkaProducer<String,String> producer = new KafkaProducer<String, String>(properties);
 
 
-        // 3. 创建发送的消息 这里三个参数： 1. TOPIC 2. 消息key 3. 消息value
-        ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(TOPIC,"00001","hello kafka !");
-
-        try {
-            // 4. 发送消息
-            producer.send(producerRecord);
-        } catch (Exception e) {
-            e.printStackTrace();
+        // 3. 多发几条消息 处理kafka-stream案例
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0){
+                ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(TOPIC,"00001","hello kafka");
+                producer.send(producerRecord);
+            }else {
+                ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>(TOPIC,"00001","hello stream");
+                producer.send(producerRecord);
+            }
         }
+
 
         // 5. 关闭发送通道 必须关闭
         producer.close();

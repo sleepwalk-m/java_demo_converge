@@ -2,6 +2,7 @@ package com.mask.kafka.listener;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Component;
+import org.springframework.kafka.annotation.KafkaListener;
 
 import java.util.Optional;
 
@@ -11,9 +12,9 @@ import java.util.Optional;
  * @description: 监听器 接收消息
  */
 @Component
-public class KafkaListener {
+public class KafkaListenerDemo {
 
-    @org.springframework.kafka.annotation.KafkaListener(topics = {"hello-kafka"})
+    @KafkaListener(topics = {"hello-kafka"})
     public void receiveMessage(ConsumerRecord<?,?> record){
 
         Optional<? extends ConsumerRecord<?, ?>> optional = Optional.ofNullable(record);
