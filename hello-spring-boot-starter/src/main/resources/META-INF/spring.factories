@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.mask.config.HelloServiceAutoConfiguration,\
+com.mask.config.MyLogAutoConfiguration

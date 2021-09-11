@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.swing.text.DateFormatter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,6 +68,16 @@ class WorkApplicationTests {
 
         LocalDate lastDay = now.with(TemporalAdjusters.lastDayOfMonth());
         System.out.println("lastDay = " + lastDay);
+
+    }
+
+
+
+    @Test
+    public void testURLEncode() throws UnsupportedEncodingException {
+        String s = "你好";
+        String encode = URLEncoder.encode(s, "utf-8");
+        System.out.println("encode = " + encode);
 
     }
 
