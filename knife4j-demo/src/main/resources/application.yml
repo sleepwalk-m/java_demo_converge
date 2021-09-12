@@ -1,0 +1,16 @@
+server:
+  port: 7788
+pinda:
+  swagger:
+    enable: true #是否启用swagger
+#   单组文档的配置
+    title: test模块
+    base-package: com.knife.controller
+#    以下是多组文档的情况
+#    docket:
+#      user:
+#        title: 用户模块
+#        base-package: com.knife.controller.user
+#      menu:
+#        title: 菜单模块
+#        base-package: com.knife.controller.menu
