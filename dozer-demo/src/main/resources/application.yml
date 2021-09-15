@@ -1,0 +1,4 @@
+dozer:
+  mapping-files:
+    - classpath:dozer/biz.dozer.xml
+    - classpath:dozer/global.dozer.xml
