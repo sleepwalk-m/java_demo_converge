@@ -1,0 +1,8 @@
+server:
+  port: 9000
+logging:
+  #在Spring Boot项目中默认加载类路径下的logback-spring.xml文件
+  config: classpath:logback-spring.xml
+spring:
+  profiles:
+    active: pro # 指定环境 使用不同的日志配置
