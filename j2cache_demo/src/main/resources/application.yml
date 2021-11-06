@@ -1,14 +1,14 @@
 server:
-  port: 8080
+  port: 8081
 
 # redis 通用配置， 不同的环境，需要配置不同的链接信息，
 # 只需要将这段信息复制到具体环境的配置文件中进行修改即可
 # 如：复制到pd-auth-server-dev.yml中将数据库名和ip改掉
 pinda:
   redis:
-    ip: 127.0.0.1
+    ip: 47.98.218.161
     port: 6379
-    password:
+    password: toortoor123
     database: 0
 
 spring:
