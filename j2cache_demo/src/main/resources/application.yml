@@ -6,9 +6,9 @@ server:
 # 如：复制到pd-auth-server-dev.yml中将数据库名和ip改掉
 pinda:
   redis:
-    ip: 47.98.218.161
+    ip: localhost
     port: 6379
-    password: toortoor123
+    password: root
     database: 0
 
 spring:
