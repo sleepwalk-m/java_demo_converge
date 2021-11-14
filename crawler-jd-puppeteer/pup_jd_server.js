@@ -7,10 +7,13 @@ let data = {
     result: '',
     param: ''
 };
-
+// 1. 开启了一个端口为9876的服务
+// 2. 服务接收一些参数 包括需要浏览器渲染的页面url
+// 3. 用puppeteer去模拟操作 拿到渲染后的html页面 响应回去
 
 // 创建本地服务器来从其接收数据
 const server = http.createServer(async (req, res) => {
+    // localhost:8122?url=xxx&level=list/detail
     var urlParam = url.parse(req.url, true).query;
     data['param'] = urlParam;
     res.writeHead(200, {'Content-Type': 'application/json'});

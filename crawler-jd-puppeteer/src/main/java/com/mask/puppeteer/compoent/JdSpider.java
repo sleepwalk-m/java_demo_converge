@@ -21,6 +21,24 @@ import us.codecraft.webmagic.scheduler.QueueScheduler;
 @Component
 public class JdSpider {
 
+
+    // 1. 去请求京东首页
+    // 2. 搜索手机，拿到浏览器渲染后的页面    --》 puppeteer 来做
+    // 3. 解析这个渲染后的html 拿到所有的列表中的详情页url
+    // 4. 去请求详情页的url
+    // 5. 解析详情页 保存数据
+
+
+    /**
+     * 1. 动态爬虫应用场景
+     *         1. 反爬 加密网站
+     *  2. puppeteer 跟 selenium的区别
+     *      1。 puppeteer是node服务版，可以多线程  puppeteer更强大 扩展更强 需要开启服务器
+     *      2. selenim 要写在Java中 只能单线程
+     *
+     */
+
+
     @Value("${indexUrl}")
     private String indexUrl;
 
