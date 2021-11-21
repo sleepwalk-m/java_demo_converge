@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
 @Data
-//@Configuration
+@Configuration
 @PropertySource("classpath:mongo.properties")
 @ConfigurationProperties(prefix="mongo")
 public class MongoDBconfigure {

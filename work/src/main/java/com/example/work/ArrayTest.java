@@ -1,5 +1,13 @@
 package com.example.work;
 
+import org.apache.http.Header;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,35 +20,21 @@ import java.util.stream.Collectors;
  */
 public class ArrayTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-       /* int[] arr = {1, 32, 5, 2, 16};
-        int temp;
-        for (int i = 0; i < arr.length - 1; i++) {
+       String domain = "https://himg.bdimg.com/sys/portrait/item/public.1.df425c42.Z1pFsAr0D_6p_klthOU1jA.jpg";
 
-            for (int j = 0; j < arr.length - i - 1; j++) {
-                if (arr[j + 1] < arr[j]) {
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
+        HttpClient httpClient = HttpClients.createDefault();
 
+        HttpGet httpGet = new HttpGet(domain);
+
+        HttpResponse response = httpClient.execute(httpGet);
+        Header[] allHeaders = response.getAllHeaders();
+        for (Header allHeader : allHeaders) {
+            System.out.println(allHeader.getName() + ":"+allHeader.getValue());
         }
-
-        System.out.println(Arrays.toString(arr));*/
-
-       String a = "http://192.168.200.130/";
-        List<String> list = new ArrayList<>();
-        list.add("http://192.168.200.130/group1/xxx/xx1.jpg");
-        list.add("http://192.168.200.130/group1/xxx/xx2.jpg");
-        list.add("http://192.168.200.130/group1/xxx/xx3.jpg");
-        list.add("http://192.168.200.130/group1/xxx/xx4.jpg");
-
-
-        List<String> collect = list.stream().map(s -> s.replace(a, "")).collect(Collectors.toList());
-
-        System.out.println(collect.toString());
+        long contentLength = response.getEntity().getContentLength();
+        System.out.println("contentLength = " + contentLength);
 
     }
 }
