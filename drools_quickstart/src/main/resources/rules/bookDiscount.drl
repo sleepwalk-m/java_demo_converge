@@ -1,0 +1,42 @@
+package book.discount //逻辑概念 相同包下可以互相访问
+
+import com.drools.entity.Order
+
+
+rule "book_discount_1" // 所购图书总价在100以下 无优惠
+    when
+        $order:Order(originalPrice < 100) // 模式匹配 会从规则引擎中 工作内存 查找order对象
+    then
+        $order.setRealPrice($order.getOriginalPrice());
+        System.out.println("成功匹配到规则1");
+end
+
+
+// 所购图书总价在100以上 200以下 优惠20
+rule "book_discount_2"
+    when
+        $order:Order(originalPrice >= 100 && originalPrice < 200) // 模式匹配 会从规则引擎中 工作内存 查找order对象
+    then
+        $order.setRealPrice($order.getOriginalPrice()-20);
+        System.out.println("成功匹配到规则2");
+end
+
+
+// 所购图书总价在200以上 300以下优惠50
+rule "book_discount_3"
+    when
+        $order:Order(originalPrice >= 200 && originalPrice < 300) // 模式匹配 会从规则引擎中 工作内存 查找order对象
+    then
+        $order.setRealPrice($order.getOriginalPrice()-50);
+        System.out.println("成功匹配到规则3");
+end
+
+
+// 所购图书总价在300以上 优惠100
+rule "book_discount_4"
+    when
+        $order:Order(originalPrice >= 300) // 模式匹配 会从规则引擎中 工作内存 查找order对象
+    then
+        $order.setRealPrice($order.getOriginalPrice()-100);
+        System.out.println("成功匹配到规则4");
+end

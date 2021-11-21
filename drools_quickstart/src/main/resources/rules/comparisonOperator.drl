@@ -1,0 +1,66 @@
+package comparisonOperator
+
+import com.drools.entity.ComparisonOperatorEntity
+
+import java.util.List
+
+
+/*
+测试比较操作符
+*/
+//测试比较操作符contains
+rule "rule_comparison_contains"
+    when
+        ComparisonOperatorEntity(names contains "张三") and
+        ComparisonOperatorEntity(list contains names)
+    then
+        System.out.println("规则：rule_comparison_contains储发了。。。。。");
+end
+
+//测试比较操作符contains
+rule "rule_comparison_notcontains"
+    when
+        ComparisonOperatorEntity(names not contains "张三") and
+        ComparisonOperatorEntity(list not contains names)
+    then
+        System.out.println("规则：rule_comparison_notcontains储发了。。。。。");
+end
+
+
+//测试比较操作符memberOf
+rule "rule_comparison_memberOf"
+    when
+        ComparisonOperatorEntity(names memberOf list)
+    then
+        System.out.println("规则：rule_comparison_memberOf储发了。。。。。");
+end
+
+
+//测试比较操作符 not memberOf
+rule "rule_comparison_notmemberOf"
+    when
+        ComparisonOperatorEntity(names not memberOf list)
+    then
+        System.out.println("规则：rule_comparison_notmemberOf触发了。。。。。");
+end
+
+
+//测试比较操作符 not matches
+rule "rule_comparison_matches"
+    when
+        ComparisonOperatorEntity(names matches "张.*")
+    then
+        System.out.println("规则：rule_comparison_matches触发了。。。。。");
+end
+
+
+//测试比较操作符 not matches
+rule "rule_comparison_notmatches"
+    when
+        ComparisonOperatorEntity(names not matches "刘.*")
+    then
+        System.out.println("规则：rule_comparison_notmatches触发了。。。。。");
+end
+
+
+
