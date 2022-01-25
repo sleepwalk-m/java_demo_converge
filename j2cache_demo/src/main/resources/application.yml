@@ -27,12 +27,12 @@ j2cache:
   allow-null-values: true
   redis-client: lettuce #指定redis客户端使用lettuce，也可以使用Jedis
   l2-cache-open: true #开启二级缓存
-  broadcast: net.oschina.j2cache.cache.support.redis.SpringRedisPubSubPolicy # 用redis的订阅发布来同步数据
+  broadcast: net_program.oschina.j2cache.cache.support.redis.SpringRedisPubSubPolicy # 用redis的订阅发布来同步数据
   #  broadcast: jgroups
   L1: #指定一级缓存提供者为caffeine
     provider_class: caffeine
   L2: #指定二级缓存提供者为redis
-    provider_class: net.oschina.j2cache.cache.support.redis.SpringRedisProvider
+    provider_class: net_program.oschina.j2cache.cache.support.redis.SpringRedisProvider
     config_section: lettuce
   sync_ttl_to_redis: true
   default_cache_null_object: false
