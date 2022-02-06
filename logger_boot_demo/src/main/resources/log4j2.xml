@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    status: 日志框架本身日志输出级别
+    monitorInterval: 自动加载配置文件的间隔时间 》 实现热更新修改配置
+-->
+<Configuration status="info" monitorInterval="5">
+
+    <Appenders>
+        <!--控制台 输出-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] [%-5level] %c{36}:%L xxxxxxxxxxxx %m%n"/>
+        </Console>
+    </Appenders>
+
+    <!--logger定义-->
+    <Loggers>
+        <!--默认是rootlooger-->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

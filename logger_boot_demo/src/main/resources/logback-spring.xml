@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!--
+日志输出格式：
+%-5level
+%d{yyyy-MM-dd HH:mm:ss.SSS}日期
+%c类的完整名称
+%M为method
+%L为行号
+%thread线程名称
+%m或者%msg为信息
+%n换行
+-->
+<!--
+    格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度
+%msg：日志消息，%n是换行符
+
+    设置属性，后面以${name} 引用
+
+-->
+<property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %c [%thread]
+%-5level %msg%n"/>
+<!--
+Appender: 设置日志信息的去向,常用的有以下几个
+ch.qos.logback.core.ConsoleAppender (控制台)ch.qos.logback.core.rolling.RollingFileAppender (文件大小到达指定尺
+寸的时候产生一个新文件)
+ch.qos.logback.core.FileAppender (文件)
+-->
+<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!--输出流对象 默认 System.out 改为 System.err 红色输出 -->
+    <target>System.out</target>
+    <!--日志格式配置-->
+    <encoder
+            class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <!--<pattern>${pattern}</pattern>-->
+        <!--spring boot 来控制输出格式 环境不同 格式不同-->
+        <springProfile name="dev">
+            <pattern>${pattern}</pattern>
+        </springProfile>
+        <springProfile name="pro">
+            <pattern>%d{yyyyMMdd:HH:mm:ss.SSS} [%thread] %-5level %msg%n</pattern>
+        </springProfile>
+    </encoder>
+</appender>
+<!--
+用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender>。
+<loger>仅有一个name属性，一个可选的level和一个可选的addtivity属性
+name:
+用来指定受此logger约束的某一个包或者具体的某一个类。
+level:
+用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和
+OFF，
+如果未设置此属性，那么当前logger将会继承上级的级别。
+additivity:
+是否向上级loger传递打印信息。默认是true。
+<logger>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个
+logger
+-->
+<!--
+也是<logger>元素，但是它是根logger。默认debug
+level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL
+和 OFF，
+<root>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个
+logger。
+-->
+<root level="info">
+    <appender-ref ref="console"/>
+</root>
+</configuration>

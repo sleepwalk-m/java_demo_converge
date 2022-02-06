@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    status: 日志框架本身日志输出级别
+    monitorInterval: 自动加载配置文件的间隔时间 》 实现热更新修改配置
+-->
+<Configuration status="warn" monitorInterval="5">
+
+    <!-- 配置属性 ${}使用-->
+    <properties>
+        <property name="LOG_HOME">D:/logs</property>
+    </properties>
+
+    <Appenders>
+        <!--控制台 输出-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] [%-5level] %c{36}:%L -
+-- %m%n"/>
+        </Console>
+        <!--日志文件输出-->
+        <File name="file" fileName="${LOG_HOME}/myfile.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l
+%c{36} - %m%n"/>
+        </File>
+        <!--随机读写流 日志文件输出 效率更高-->
+        <RandomAccessFile name="accessFile" fileName="${LOG_HOME}/myAcclog.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l
+%c{36} - %m%n"/>
+        </RandomAccessFile>
+
+        <!--按照规则 拆分日志文件-->
+        <RollingFile name="rollingFile" fileName="${LOG_HOME}/myrollog.log"
+                     filePattern="D:/logs/$${date:yyyy-MM-dd}/myrollog-%d{yyyyMM-dd-HH-mm}-%i.log">
+            <!--日志级别过滤器-->
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--日志消息 格式-->
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l
+%c{36} - %msg%n"/>
+            <Policies>
+                <!--在系统启动时 触发拆分规则 生成新日志文件-->
+                <OnStartupTriggeringPolicy/>
+                <!--按照文件大小拆分 10mb-->
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+                <!--按照时间节点拆分 上面的filePattern来定义的 当前：以天为单位生成文件夹 以分钟生成文件-->
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <!--文件个数限定30个 超过进行覆盖-->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <!--logger定义-->
+    <Loggers>
+        <!--默认是rootlooger-->
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>
