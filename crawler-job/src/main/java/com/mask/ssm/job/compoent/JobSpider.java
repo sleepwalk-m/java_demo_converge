@@ -30,7 +30,7 @@ public class JobSpider {
 
     public void doCrawler(){
 
-        Request request = new Request("https://himg.bdimg.com/sys/portrait/item/public.1.df425c42.Z1pFsAr0D_6p_klthOU1jA.jpg");
+        Request request = new Request(URL);
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("level","list"); // 标识位
         request.setExtras(map);
