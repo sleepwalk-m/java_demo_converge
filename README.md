@@ -40,6 +40,12 @@
 代码：[crawler-jd-puppeteer](https://github.com/sleepwalk-m/java_demo_converge/tree/master/crawler-jd-puppeteer)
 
 
+#### 1.5 WebMagic + JS逆向入门级
+
+视频：[【Java爬虫】入门级JS逆向获取加密参数](https://www.bilibili.com/video/BV1VL4y1u7cj)
+
+代码：[decrypt_crawler](https://github.com/sleepwalk-m/java_demo_converge/tree/master/decrypt_crawler)
+
 
 ### 2. 其余Demo代码
 
