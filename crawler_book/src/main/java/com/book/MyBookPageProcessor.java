@@ -88,7 +88,6 @@ public class MyBookPageProcessor implements PageProcessor {
             extraMap.put("level", "detail");
             request.setExtras(extraMap);
             page.addTargetRequest(request);
-            break;
         }
 
 
@@ -118,7 +117,6 @@ public class MyBookPageProcessor implements PageProcessor {
             request.setExtras(extraMap);
 
             page.addTargetRequest(request);
-            break;
         }
 
     }
@@ -143,7 +141,7 @@ public class MyBookPageProcessor implements PageProcessor {
         Spider.create(new MyBookPageProcessor())
                 .addRequest(request)
                 .addPipeline(new MyBookPipeline())
-                .thread(1)
+                .thread(30)
                 .start();
 
     }
