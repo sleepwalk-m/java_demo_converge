@@ -19,7 +19,12 @@ public class GovCrawlerSpider {
          2. 校验验证码
          3. 数据请求
 
-         // 作业：https://jdcjcwx.jtzyzg.org.cn/JDCJCWX/LEAP/jdcjcwx/html/publicQuery.html
+         //
+         本期站点：
+         http://app.gjzwfw.gov.cn/jmopen/webapp/html5/unZip/73972cc317884de39d7767e1d44bbf82/zcaqgcszs/index.html
+
+         作业：
+         https://jdcjcwx.jtzyzg.org.cn/JDCJCWX/LEAP/jdcjcwx/html/publicQuery.html
             可以尝试看下这个站点，需要如何处理加密
           */
         String url = "http://app.gjzwfw.gov.cn/jmopen/verifyCode.do?width=100&height=55&random=" + Math.random();
