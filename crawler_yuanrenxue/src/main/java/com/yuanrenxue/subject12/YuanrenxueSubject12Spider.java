@@ -60,7 +60,7 @@ public class YuanrenxueSubject12Spider implements PageProcessor {
 
 
         request.addHeader("user-agent","yuanrenxue.project");
-        request.addHeader("cookie","sessionid=pblnv2eyk2xr1j9syekgdv4x9ps4kohw;");
+        request.addHeader("cookie","你自己的sessionid");
 
         page.addTargetRequest(request);
     }
@@ -81,7 +81,7 @@ public class YuanrenxueSubject12Spider implements PageProcessor {
         request.putExtra("result","0");
 
         request.addHeader("user-agent","yuanrenxue.project");
-        request.addHeader("cookie","sessionid=pblnv2eyk2xr1j9syekgdv4x9ps4kohw;");
+        request.addHeader("cookie","你自己的sessionid");
 
         page.addTargetRequest(request);
     }
