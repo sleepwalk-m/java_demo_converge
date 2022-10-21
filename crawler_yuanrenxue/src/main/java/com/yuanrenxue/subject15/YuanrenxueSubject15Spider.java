@@ -100,7 +100,7 @@ public class YuanrenxueSubject15Spider implements PageProcessor {
         request.putExtra("pageNum","1");
         request.putExtra("result","0");
 
-        Spider.create(new YuanrenxueSubject12Spider())
+        Spider.create(new YuanrenxueSubject15Spider())
                 .addRequest(request)
                 .thread(1)
                 .start();
