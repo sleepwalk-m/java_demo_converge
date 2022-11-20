@@ -19,6 +19,9 @@ import java.util.Map;
  * @description:
  */
 public class YuanrenxueSubject13Spider implements PageProcessor {
+
+    private Site site = Site.me();
+
     @Override
     public void process(Page page) {
 
@@ -58,8 +61,8 @@ public class YuanrenxueSubject13Spider implements PageProcessor {
         request.putExtra("level", "second");
         request.putExtra("result", "0");
 
-        //request.addHeader("user-agent", "yuanrenxue.project");
-        request.addHeader("cookie", yuanrenxue_cookie);
+        request.addHeader("user-agent", "yuanrenxue.project");
+        request.addHeader("Cookie", yuanrenxue_cookie);
         //request.addCookie("yuanrenxue_cookie", yuanrenxue_cookie.split("=")[1]);
         //request.addCookie("sessionid", setCookie.split("=")[1]);
 
@@ -84,6 +87,8 @@ public class YuanrenxueSubject13Spider implements PageProcessor {
 
 
         String cookie = setCookie + yuanrenxue_cookie;
+        site.addCookie("sessionid",setCookie);
+        site.addCookie("yuanrenxue_cookie",yuanrenxue_cookie.split("=")[1]);
         String url = "https://match.yuanrenxue.com/match/13";
         Request request = new Request(url);
         request.setMethod(HttpConstant.Method.GET);
@@ -91,7 +96,7 @@ public class YuanrenxueSubject13Spider implements PageProcessor {
         request.putExtra("result", "0");
 
         //request.addHeader("user-agent", "yuanrenxue.project");
-        request.addHeader("cookie", setCookie);
+        request.addHeader("Cookie", setCookie);
         //request.addCookie("yuanrenxue_cookie", yuanrenxue_cookie.split("=")[1]);
         //request.addCookie("sessionid", setCookie.split("=")[1]);
 
@@ -102,7 +107,7 @@ public class YuanrenxueSubject13Spider implements PageProcessor {
 
     @Override
     public Site getSite() {
-        return Site.me().addCookie("sessionid","twp02wokgp6yd362s1rbfmv74tzgirf4");
+        return site;
     }
 
     public static void main(String[] args) {
