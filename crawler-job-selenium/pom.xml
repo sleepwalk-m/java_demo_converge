@@ -14,6 +14,8 @@
         <version>2.1.5.RELEASE</version>
     </parent>
 
+    <packaging>pom</packaging>
+
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
