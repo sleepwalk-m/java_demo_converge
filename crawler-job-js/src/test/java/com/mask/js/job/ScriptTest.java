@@ -14,9 +14,14 @@ import javax.script.ScriptException;
 public class ScriptTest {
 
     public static void main(String[] args) throws ScriptException, NoSuchMethodException {
-        String arg1 = "D68247CAD395B353D0E3FD1BC5BECA7C844B82CE";
-        String acwCookie = getAcwCookie(arg1);
-        System.out.println("acwCookie = " + acwCookie);
+//        String arg1 = "D68247CAD395B353D0E3FD1BC5BECA7C844B82CE";
+//        String acwCookie = getAcwCookie(arg1);
+//        System.out.println("acwCookie = " + acwCookie);
+
+        String a = "";
+        String s = testScript(a);
+        System.out.println("s = " + s);
+
     }
 
 
@@ -28,6 +33,17 @@ public class ScriptTest {
         engine.eval(script);
 
         String realStr = (String) engine.invokeFunction("getAcwCookie", arg1);
+        return realStr;
+    }
+
+    public static String testScript(String arg1) throws ScriptException, NoSuchMethodException {
+        String script = "function getSign(a){return new Date().getTime().toString()}";
+
+
+        JavaScriptEngine engine = ScriptUtil.getJavaScriptEngine();
+        engine.eval(script);
+
+        String realStr = (String) engine.invokeFunction("getSign", arg1);
         return realStr;
     }
 }
