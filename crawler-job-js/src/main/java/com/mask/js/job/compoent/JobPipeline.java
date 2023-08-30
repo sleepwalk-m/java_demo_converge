@@ -1,7 +1,7 @@
-package com.mask.ssm.job.compoent;
+package com.mask.js.job.compoent;
 
-import com.mask.ssm.job.mapper.JobInfoMapper;
-import com.mask.ssm.job.pojo.JobInfo;
+import com.mask.js.job.mapper.JobInfoMapper;
+import com.mask.js.job.pojo.JobInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.ResultItems;

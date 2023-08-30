@@ -1,6 +1,6 @@
-package com.mask.ssm.job.controller;
+package com.mask.js.job.controller;
 
-import com.mask.ssm.job.compoent.JobSpider;
+import com.mask.js.job.compoent.JobSpider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

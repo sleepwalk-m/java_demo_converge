@@ -1,7 +1,7 @@
-package com.mask.ssm.job.mapper;
+package com.mask.js.job.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mask.ssm.job.pojo.JobInfo;
+import com.mask.js.job.pojo.JobInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

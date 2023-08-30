@@ -1,4 +1,4 @@
-package com.mask.ssm.job.pojo;
+package com.mask.js.job.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

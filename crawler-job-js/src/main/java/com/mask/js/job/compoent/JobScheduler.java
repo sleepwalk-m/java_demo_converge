@@ -1,4 +1,4 @@
-package com.mask.ssm.job.compoent;
+package com.mask.js.job.compoent;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
